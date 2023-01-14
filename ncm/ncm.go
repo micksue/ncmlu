@@ -34,7 +34,7 @@ func New(phone, password string, code int) *NCMAccount {
 
 // Login 登录
 func (ac *NCMAccount) Login(client *http.Client) {
-	loginURL := "https://music.163.com/weapi/login/cellphone"
+	loginURL := "https://music.163.com/eapi/w/login/cellphone"
 	jsonData, err := json.Marshal(ac)
 	if err != nil {
 		util.Logger.Error(err)
@@ -45,7 +45,7 @@ func (ac *NCMAccount) Login(client *http.Client) {
 		util.Logger.Error(err)
 		return
 	}
-	req.Header.Set("Cookie", "os=pc; osver=Microsoft-Windows-10-Professional-build-10586-64bit; appver=2.9.7; channel=netease; __remember_me=true;")
+	req.Header.Set("Cookie", "os=pc; osver=Microsoft-Windows-10-Professional-build-10586-64bit; appver=2.10.6; channel=netease; __remember_me=true;")
 	res, err := client.Do(req)
 	if err != nil {
 		util.Logger.Error(err)
