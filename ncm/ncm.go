@@ -34,7 +34,7 @@ func New(phone, password string, code int) *NCMAccount {
 
 // Login 登录
 func (ac *NCMAccount) Login(client *http.Client) {
-	loginURL := "https://music.163.com/eapi/w/login/cellphone"
+	loginURL := "https://music.163.com/weapi/login/cellphone"
 	jsonData, err := json.Marshal(ac)
 	if err != nil {
 		util.Logger.Error(err)
